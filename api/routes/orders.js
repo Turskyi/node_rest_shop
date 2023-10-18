@@ -23,8 +23,13 @@ router.delete('/:orderId', (request, response, next) => {
 });
 
 router.post('/', (request, response, next) => {
+    const order = {
+        productId: request.body.productId,
+        quantity: request.body.quantity,
+    };
     response.status(201).json({
-        message: 'Orders was created'
+        message: 'Orders was created',
+        createdOrder: order,
     });
 });
 
